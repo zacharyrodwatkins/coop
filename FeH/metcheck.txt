@@ -1,0 +1,3 @@
+from Lamost_segue.fits
+FeHadop as FeHs
+[Fe/H] as FeHl

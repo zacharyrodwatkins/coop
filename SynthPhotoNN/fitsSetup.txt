@@ -1,0 +1,9 @@
+from synthetic_photometery_train.fits
+u -c[1]
+CaHK -c[2]
+g -c[3]
+r -c[4]
+i -c[5]
+z -c[6]
+y -c[7]
+-all

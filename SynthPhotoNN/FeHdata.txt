@@ -1,0 +1,62 @@
+from /home/watkinsz/Desktop/For_Zack/Pristine_PSf_Gaia_segue.fits
+RA_CaHK as ra
+DEC_CaHK as \dec
+#\ infront of d is to act as an escape character so that dec isn't put in uncertainties list. It's loaded as dec all the same
+u_0 -i -c[0]
+g_0  
+r_0  
+i_0  
+z_0 
+gFPSFMag as g_fpsf -i -c[3]
+rFPSFMag as r_fpsf -i -c[5]
+iFPSFMag as i_fpsf -i -c[6]
+zFPSFMag as z_fpsf -i -c[7]
+yFPSFMag as y_fpsf -i -c[8] #contains weird -9999 values. These are cut
+gFPSFMagErr as dg_fpsf 
+rFPSFMagErr as dr_fpsf 
+iFPSFMagErr as di_fpsf 
+zFPSFMagErr as dz_fpsf
+yFPSFMagErr as dy_fpsf
+loggadop as logg
+#loggadopunc as dlogg
+CaHK_0 -i -c[1]
+CaHKerr as dCaHK_0
+12[5,6,7,8,9] as [u,g,r,i,z]_psf
+FeHadop -o
+FeHadopunc as dFeHadop
+snr
+phot_bp_mean_mag as bp_gaia 
+#-c[2]
+phot_rp_mean_mag as rp_gaia  #-c[4]
+phot_bp_rp_excess_factor
+err_[u,g,r,i,z] as d[u_0,g,r,i,z]
+set colours = 2
+fehannrr
+fehannrrunc as dfehannrr
+from /home/watkinsz/Desktop/For_Zack/Pristine_PSf_gaia_1Apr19.fits
+RA_CaHK as ra
+DEC_CaHK as \dec
+FeHphot_gi as FeH_pristine
+u_0 -i -c[0] 
+gFPSFMag as g_fpsf -i -c[3]
+rFPSFMag as r_fpsf -i -c[5]
+iFPSFMag as i_fpsf -i -c[6]
+zFPSFMag as z_fpsf -i -c[7]
+yFPSFMag as y_fpsf -i -c[8]
+[g,r,i,z,y]FPSFMagErr as d[g,r,i,z,y]_fpsf 
+CaHK_0 -i -c[1]
+CaHKerr as dCaHK_0
+err_u as du_0
+[g,i]_0 
+feh as FeHadop -o
+dfeh as dFeHadop
+-all
+from synthetic_photometery_train.fits
+u -c[1]
+CaHK -c[2]
+g -c[3]
+r -c[4]
+i -c[5]
+z -c[6]
+y -c[7]
+-all
